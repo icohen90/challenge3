@@ -7,6 +7,30 @@ var special = ["!", "@", "#", "$", "%", "^", "&", "*", "?", "<", ">"];
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+//Variable Declarations
+var confirmLength = "";
+var confirmSpecial;
+var confirmNumber;
+var confirmUppercase;
+var confirmLowercase;
+
+function generatePassword(){
+  var confirmLength = prompt("How many characters would you like your password to contain?");
+
+  if(confirmLength >=8 && confirmLength<=128){
+    var confirmSpecial = confirm("Click OK to confirm if you would like to include special characters");
+    var confirmNumber = confirm("Click OK to confirm if you would like to include numbers");
+    var confirmUppercase = confirm("Click OK to confirm if you would like to include uppercase letters");
+    var confirmLowercase = confirm("Click OK to confirm if you would like to include lowercase letters");
+
+  }else{
+    alert("Password length must be between 8-128 characters. Try Again!");
+    var confirmLength = prompt("How many characters would you like your password to contain?");
+  }
+}
+
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
