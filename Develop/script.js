@@ -41,7 +41,15 @@ function generatePassword(){
       passwordCharacters = passwordCharacters.concat(lowercase);
     }
 
-    console.log(passwordCharacters);
+    //creates password variable 
+    var randomPassword = "";
+
+    for(var i=0; i < confirmLength; i++){
+      randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+      console.log(randomPassword)
+    }
+    return randomPassword;
+
   }else{
     alert("Password length must be between 8-128 characters. Try Again!");
     var confirmLength = prompt("How many characters would you like your password to contain?");
