@@ -61,3 +61,4 @@ if(confirmLength >=8 && confirmLength<=128){
     var confirmLength = prompt("How many characters would you like your password to contain?");
   }
   ```
+The rest of the code in the javascript was provided in the starter files. 
