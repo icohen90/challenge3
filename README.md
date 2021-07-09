@@ -1,5 +1,5 @@
 # Password Generator Starter Code
-# After setting up the the project and downloading the files I started thinking how I can set up the program and decided to start with creating 4 arrays for each option the user  can choose.
+ After setting up the the project and downloading the files I started thinking how I can set up the program and decided to start with creating 4 arrays for each option the user  can choose.
 
 ```
 var number = ["0", "1", "2","3", "4","5", "6", "7", "8", "9", "0"];
