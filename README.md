@@ -7,3 +7,12 @@ var lowercase = ["a", "b", "c","d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 var uppercase = ["A", "B", "C","D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var special = ["!", "@", "#", "$", "%", "^", "&", "*", "?", "<", ">"];
 ```
+
+Next step was to declare variable to confirm the users input from the one prompt and 4 confirm statements.
+```
+var confirmLength = "";
+var confirmSpecial;
+var confirmNumber;
+var confirmUppercase;
+var confirmLowercase;
+```
