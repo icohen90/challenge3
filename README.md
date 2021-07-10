@@ -18,9 +18,12 @@ var confirmLowercase;
 ```
 <ol>
   <li>First thing was adding the if else statement to define the working conditions.</li>
+  <li>The next four functions will perform a random index on their array.<li>
+  <li>After that I created the randomPassword variable and used 4 if statements to check what which characters the user wanted in their password.</li>
+  <li>The next part is to insure that in the password each character that is chosen occurs at least once and is added to the password variable. The important part here is that the userChoicess password gets incremented if the user chooses that specific character.</li>
   <li>The next part was the hardest part, how can you take 4 separate arrays and make a password out of it. I decided to create an empty array and if the user chose to add 
     that array type to their password it adds that array to the empty array.</li>
-  <li>Finally, you need a for loop to add however many characters the user chose into a password variable, that returns the password to the write Password function</li>
+  <li>Finally, you need a for loop to to generate the password but since the password already has characters in it equal to userChoicess in the for loop you have to take the length of the password the user wants and subtract the userChoices variable depending on how many characters they chose.</li>
 </ol>
 
 ```
@@ -30,27 +33,66 @@ if(confirmLength >=8 && confirmLength<=128){
     var confirmUppercase = confirm("Click OK to confirm if you would like to include uppercase letters");
     var confirmLowercase = confirm("Click OK to confirm if you would like to include lowercase letters");
 
+  function getLowercase() {
+      return lowercase[Math.floor(Math.random() * lowercase.length)];
+  }
+  
+  function getUppercase() {
+      return uppercase[Math.floor(Math.random() * uppercase.length)];
+  }
+  
+  function getNumber() {
+      return number[Math.floor(Math.random() * number.length)];
+  }
+  
+  function getSymbol() {
+      return special[Math.floor(Math.random() * special.length)];
+  }
+
+  var randomPassword = "";
+  
+      if (confirmUppercase) {
+          randomPassword += getUppercase();
+      }
+  
+      if (confirmLowercase) {
+          randomPassword += getLowercase();
+      }
+  
+      if (confirmNumber) {
+          randomPassword += getNumber();
+      }
+  
+      if (confirmSpecial) {
+          randomPassword += getSymbol();
+      }
+
 
     //creates an empty array. If statements take each single array and creates one array called passwordCharacters
     var passwordCharacters = [];
+    var userChoices = 0;
 
     if(confirmSpecial){
       passwordCharacters = passwordCharacters.concat(special);
+      userChoices++;
     }
     if(confirmNumber){
       passwordCharacters = passwordCharacters.concat(number);
+      userChoices++;
     }
     if(confirmUppercase){
       passwordCharacters = passwordCharacters.concat(uppercase);
+      userChoices++;
     }
     if(confirmLowercase){
       passwordCharacters = passwordCharacters.concat(lowercase);
+      userChoices++;
     }
 
-    //creates password variable that adds each item in the array to the randomPassword variable
-    var randomPassword = "";
+    console.log(userChoices);
 
-    for(var i=0; i < confirmLength; i++){
+    //creates password variable that adds each item in the array to the randomPassword
+    for(var i=0; i < confirmLength-userChoices; i++){
       randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
       console.log(randomPassword)
     }
@@ -60,5 +102,6 @@ if(confirmLength >=8 && confirmLength<=128){
     alert("Password length must be between 8-128 characters. Try Again!");
     var confirmLength = prompt("How many characters would you like your password to contain?");
   }
+}
   ```
 The rest of the code in the javascript was provided in the starter files. 
