@@ -24,27 +24,66 @@ function generatePassword(){
     var confirmUppercase = confirm("Click OK to confirm if you would like to include uppercase letters");
     var confirmLowercase = confirm("Click OK to confirm if you would like to include lowercase letters");
 
+  function getLowercase() {
+      return lowercase[Math.floor(Math.random() * lowercase.length)];
+  }
+  
+  function getUppercase() {
+      return uppercase[Math.floor(Math.random() * uppercase.length)];
+  }
+  
+  function getNumber() {
+      return number[Math.floor(Math.random() * number.length)];
+  }
+  
+  function getSymbol() {
+      return special[Math.floor(Math.random() * special.length)];
+  }
+
+  var randomPassword = "";
+  
+      if (confirmUppercase) {
+          randomPassword += getUppercase();
+      }
+  
+      if (confirmLowercase) {
+          randomPassword += getLowercase();
+      }
+  
+      if (confirmNumber) {
+          randomPassword += getNumber();
+      }
+  
+      if (confirmSpecial) {
+          randomPassword += getSymbol();
+      }
+
 
     //creates an empty array. If statements take each single array and creates one array called passwordCharacters
     var passwordCharacters = [];
+    var userChoices = 0;
 
     if(confirmSpecial){
       passwordCharacters = passwordCharacters.concat(special);
+      userChoices++;
     }
     if(confirmNumber){
       passwordCharacters = passwordCharacters.concat(number);
+      userChoices++;
     }
     if(confirmUppercase){
       passwordCharacters = passwordCharacters.concat(uppercase);
+      userChoices++;
     }
     if(confirmLowercase){
       passwordCharacters = passwordCharacters.concat(lowercase);
+      userChoices++;
     }
 
-    //creates password variable 
-    var randomPassword = "";
+    console.log(userChoices);
 
-    for(var i=0; i < confirmLength; i++){
+    //creates password variable that adds each item in the array to the randomPassword
+    for(var i=0; i < confirmLength-userChoices; i++){
       randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
       console.log(randomPassword)
     }
